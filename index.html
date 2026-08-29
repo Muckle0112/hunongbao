@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>云上护农宝 · APP原型</title>
+<link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body>
+<!-- ========== 启动/引导页 ========== -->
+<div class="splash" id="splash">
+  <div class="splash-circle"></div>
+  <div class="splash-logo">护</div>
+  <div class="splash-brand">云上护农宝</div>
+  <div class="splash-slogan">懂法 · 护农 · 助增收</div>
+  <div class="splash-sub">农户的一站式法律与产销服务助手</div>
+  <button class="splash-btn" id="splashBtn">进入云上护农宝</button>
+</div>
+
+<!-- ========== Toast 提示 ========== -->
+<div class="toast" id="toast"></div>
+
+<!-- ========== 桌面侧：项目信息架构总览 ========== -->
+<aside class="sidenote">
+  <div class="sidenote-inner">
+    <h1>云上护农宝</h1>
+    <p class="tagline">农户的一站式法律与产销服务助手</p>
+
+    <h2>核心服务</h2>
+    <ul class="core-list">
+      <li>普法案例</li>
+      <li>合同模板下载</li>
+      <li>一键法律咨询</li>
+      <li>纠纷应对指导</li>
+      <li>维权援助</li>
+      <li>资源对接</li>
+    </ul>
+    <p class="sidenote-desc">联动乡镇司法所、学校法律援助中心、律师事务所，助力农户规避法律风险、降低维权成本、稳定增收。</p>
+
+    <h2>信息架构 · 五大板块</h2>
+    <div class="arch">
+      <div class="arch-block">
+        <div class="arch-tab tab-home">首页</div>
+        <div class="arch-items">品牌头图 · 快捷入口 · 核心服务卡片 · 便农服务栏</div>
+      </div>
+      <div class="arch-block">
+        <div class="arch-tab tab-law">法律服务</div>
+        <div class="arch-items">方言普法短剧 · 典型案例拆解 · 龙江普法小课堂</div>
+      </div>
+      <div class="arch-block">
+        <div class="arch-tab tab-edu">普法教育</div>
+        <div class="arch-items">涉农合同模板库(含对俄版) · 定制合同审核 · 直播广告用词规范</div>
+      </div>
+      <div class="arch-block">
+        <div class="arch-tab tab-res">资源对接</div>
+        <div class="arch-items">证据留存指引 · 纠纷应对流程 · 货款拖欠/退货协助 · 诉讼对接</div>
+      </div>
+      <div class="arch-block">
+        <div class="arch-tab tab-me">我的</div>
+        <div class="arch-items">个人中心 · 实用工具 · 便农生活服务 · 微信答疑群 · 村干部师生联动 · 需求调研</div>
+      </div>
+    </div>
+
+    <p class="hint">← 左侧为信息架构总览，右侧手机为可直接点击的原型。底部5个Tab可切换主板块。</p>
+  </div>
+</aside>
+
+<!-- ========== 手机原型 ========== -->
+<main class="phone-wrap">
+  <div class="phone">
+    <div class="phone-notch"></div>
+    <div class="screen">
+      <!-- 各页面容器 -->
+      <section class="page active" id="page-home" data-tab="home">
+        <header class="app-header home-header">
+          <div class="header-top">
+            <div class="brand">
+              <span class="brand-logo">护</span>
+              <span class="brand-name">云上护农宝</span>
+            </div>
+            <div class="header-icons">
+              <span class="h-icon" data-toast="搜索功能即将上线，敬请期待 🔍">🔍</span>
+              <span class="h-icon" data-toast="公告：第十七期答疑直播明晚19:00开讲 📢">📢</span>
+            </div>
+          </div>
+          <div class="location">📍 当前位置：黑龙江省 · 哈尔滨市</div>
+        </header>
+
+        <div class="carousel" id="carousel">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="banner b1">
+              <div class="banner-text">
+                <div class="banner-slogan">懂法 · 护农 · 助增收</div>
+                <div class="banner-sub">普法有案例，合同有模板，维权有帮手</div>
+              </div>
+              <div class="banner-btn" data-nav="page-consult">一键法律咨询</div>
+            </div>
+            <div class="banner b2">
+              <div class="banner-text">
+                <div class="banner-slogan">涉农合同模板库</div>
+                <div class="banner-sub">含对俄双语版 · 一键下载 · 专业审核</div>
+              </div>
+              <div class="banner-btn" data-nav="page-edu">去下载模板</div>
+            </div>
+            <div class="banner b3">
+              <div class="banner-text">
+                <div class="banner-slogan">货款被拖欠？别慌</div>
+                <div class="banner-sub">证据留存 → 纠纷应对 → 诉讼对接</div>
+              </div>
+              <div class="banner-btn" data-nav="page-res">了解维权流程</div>
+            </div>
+          </div>
+          <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+
+        <div class="notice-bar">
+          <span class="notice-ico">📢</span>
+          <div class="notice-track">
+            <span class="notice-text">第十七期法律答疑直播明晚19:00开讲 · 高校法援师生走进XX村开展秋收购销普法</span>
+          </div>
+        </div>
+
+        <!-- 搜索（支持语音） -->
+        <div class="search-bar">
+          <span class="search-ico">🔍</span>
+          <input id="homeSearch" class="search-input" placeholder="搜法律 / 案例 / 合同模板" autocomplete="off" />
+          <button class="mic-btn" id="homeMicBtn" type="button"><span class="mic-ico">🎤</span></button>
+        </div>
+        <div class="voice-tip" id="homeSearchTip"></div>
+        <div class="search-results" id="homeSearchResults" style="display:none"></div>
+
+        <div class="quick-grid">
+          <div class="q-item" data-nav="page-law"><span class="q-ico">⚖️</span><span>法律服务</span></div>
+          <div class="q-item" data-nav="page-edu"><span class="q-ico">📚</span><span>普法教育</span></div>
+          <div class="q-item" data-nav="page-res"><span class="q-ico">🤝</span><span>资源对接</span></div>
+          <div class="q-item" data-nav="page-tools"><span class="q-ico">🧰</span><span>实用工具</span></div>
+          <div class="q-item" data-nav="page-life"><span class="q-ico">🌾</span><span>便农服务</span></div>
+          <div class="q-item" data-nav="page-consult"><span class="q-ico">💬</span><span>在线咨询</span></div>
+        </div>
+
+        <h3 class="sec-title">核心服务</h3>
+        <div class="service-list">
+          <div class="svc-card" data-nav="page-law">
+            <div class="svc-ico">📖</div>
+            <div class="svc-info">
+              <div class="svc-name">普法案例库</div>
+              <div class="svc-desc">方言短剧 · 典型案例 · 课堂小知识</div>
+            </div>
+            <div class="svc-arrow">›</div>
+          </div>
+          <div class="svc-card" data-nav="page-edu">
+            <div class="svc-ico">📝</div>
+            <div class="svc-info">
+              <div class="svc-name">涉农合同模板</div>
+              <div class="svc-desc">含对俄版 · 一键下载 · 定制审核</div>
+            </div>
+            <div class="svc-arrow">›</div>
+          </div>
+          <div class="svc-card" data-nav="page-res">
+            <div class="svc-ico">🛡️</div>
+            <div class="svc-info">
+              <div class="svc-name">纠纷应对指导</div>
+              <div class="svc-desc">证据留存 · 应对流程 · 诉讼对接</div>
+            </div>
+            <div class="svc-arrow">›</div>
+          </div>
+          <div class="svc-card" data-nav="page-life">
+            <div class="svc-ico">🌾</div>
+            <div class="svc-info">
+              <div class="svc-name">产销对接</div>
+              <div class="svc-desc">找销路 · 找资源 · 便农服务</div>
+            </div>
+            <div class="svc-arrow">›</div>
+          </div>
+        </div>
+
+        <h3 class="sec-title">便农生活服务</h3>
+        <div class="life-bar">
+          <div class="life-item" data-nav="page-group"><span class="q-ico">💬</span><span>微信答疑群</span></div>
+          <div class="life-item" data-nav="page-staff"><span class="q-ico">👥</span><span>村干部师生联动</span></div>
+          <div class="life-item" data-nav="page-survey"><span class="q-ico">📋</span><span>需求调研反馈</span></div>
+        </div>
+      </section>
+
+      <!-- 占位页面：将在后续模块填充 -->
+      <section class="page" id="page-law" data-tab="law">
+        <header class="app-header simple">
+          <button class="back-btn" data-back aria-label="返回"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <div class="header-title">法律服务</div>
+          <span class="header-space"></span>
+        </header>
+
+        <div class="law-switch">
+          <div class="law-tab active" data-law="drama">方言普法短剧</div>
+          <div class="law-tab" data-law="case">典型案例拆解</div>
+          <div class="law-tab" data-law="class">龙江普法课堂</div>
+        </div>
+
+        <!-- 方言普法短剧 -->
+        <div class="law-panel active" id="lawPanel-drama">
+          <div class="panel-tip">📺 用家乡话讲法律，看得懂、记得住、用得上</div>
+          <div class="video-card">
+            <div class="video-thumb" style="background:linear-gradient(135deg,#4c9dd0,#2f6b8f)">▶<span class="thumb-time">08:26</span></div>
+            <div class="video-info">
+              <div class="video-title">咱屯卖粮被压价，咋整？（东北话版）</div>
+              <div class="video-meta">👀 1.2万播放 · 粮食购销</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb" style="background:linear-gradient(135deg,#5aa77e,#2f6b4f)">▶<span class="thumb-time">05:41</span></div>
+            <div class="video-info">
+              <div class="video-title">签了订单不出货，违约啦？（黑龙江方言）</div>
+              <div class="video-meta">👀 8600播放 · 合同违约</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb" style="background:linear-gradient(135deg,#b08a3a,#7a5c1a)">▶<span class="thumb-time">06:58</span></div>
+            <div class="video-info">
+              <div class="video-title">直播间买到假种子，能退吗？（东北话版）</div>
+              <div class="video-meta">👀 1.5万播放 · 消费维权</div>
+            </div>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb" style="background:linear-gradient(135deg,#7a6ac0,#4f4090)">▶<span class="thumb-time">04:20</span></div>
+            <div class="video-info">
+              <div class="video-title">给人家打短工，工钱咋要？（龙江话版）</div>
+              <div class="video-meta">👀 6300播放 · 劳动报酬</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 典型案例拆解 -->
+        <div class="law-panel" id="lawPanel-case">
+          <div class="panel-tip">🧩 真实案例一步一步拆，遇到同类问题不慌</div>
+          <div class="case-card">
+            <div class="case-tag tag-trade">购销纠纷</div>
+            <div class="case-title">收购商赊账跑路，农户如何拿回货款？</div>
+            <div class="case-points">
+              <div class="cp"><span class="cp-ico">💡</span><span>案情回顾：保留欠条、转账记录、微信聊天</span></div>
+              <div class="cp"><span class="cp-ico">⚖️</span><span>法律依据：民法典合同编 · 欠款追偿</span></div>
+              <div class="cp"><span class="cp-ico">✅</span><span>结果：诉前调解成功，货款如期到账</span></div>
+            </div>
+          </div>
+          <div class="case-card">
+            <div class="case-tag tag-land">土地流转</div>
+            <div class="case-title">流转合同未备案，承包地还能收回吗？</div>
+            <div class="case-points">
+              <div class="cp"><span class="cp-ico">💡</span><span>案情回顾：口头约定期限，未签书面合同</span></div>
+              <div class="cp"><span class="cp-ico">⚖️</span><span>法律依据：土地承包经营法 · 备案要求</span></div>
+              <div class="cp"><span class="cp-ico">✅</span><span>结果：补签合同并备案，双方权益受保护</span></div>
+            </div>
+          </div>
+          <div class="case-card">
+            <div class="case-tag tag-ecom">电商直播</div>
+            <div class="case-title">直播带货过度承诺，被判惩罚性赔偿</div>
+            <div class="case-points">
+              <div class="cp"><span class="cp-ico">💡</span><span>案情回顾：夸大“有机”“零残留”宣传语</span></div>
+              <div class="cp"><span class="cp-ico">⚖️</span><span>法律依据：广告法 · 消费者权益保护法</span></div>
+              <div class="cp"><span class="cp-ico">✅</span><span>结果：承担三倍赔偿，主播账号被封</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 龙江普法课堂 -->
+        <div class="law-panel" id="lawPanel-class">
+          <div class="panel-tip">🎓 龙江普法小课堂，结合村情学法律</div>
+          <div class="class-item">
+            <div class="class-no">01</div>
+            <div class="class-info">
+              <div class="class-title">春耕时节 · 农资采购防坑指南</div>
+              <div class="class-meta">📅 每周更新 · 视频+图文</div>
+            </div>
+            <button class="class-btn">学</button>
+          </div>
+          <div class="class-item">
+            <div class="class-no">02</div>
+            <div class="class-info">
+              <div class="class-title">秋收卖粮 · 货款结算风险防范</div>
+              <div class="class-meta">📅 每月专题 · 案例+互动</div>
+            </div>
+            <button class="class-btn">学</button>
+          </div>
+          <div class="class-item">
+            <div class="class-no">03</div>
+            <div class="class-info">
+              <div class="class-title">土地法规 · 承包与流转要点速懂</div>
+              <div class="class-meta">📅 专题课程 · 附实用表单</div>
+            </div>
+            <button class="class-btn">学</button>
+          </div>
+          <div class="class-item">
+            <div class="class-no">04</div>
+            <div class="class-info">
+              <div class="class-title">电商经营 · 直播带货合法边界</div>
+              <div class="class-meta">📅 与高校法援联合录制</div>
+            </div>
+            <button class="class-btn">学</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="page-edu" data-tab="edu">
+        <header class="app-header simple">
+          <button class="back-btn" data-back aria-label="返回"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <div class="header-title">普法教育</div>
+          <span class="header-space"></span>
+        </header>
+
+        <div class="panel-tip">📄 合同不踩坑，宣传不说错，买卖才安心</div>
+
+        <!-- 涉农合同模板库 -->
+        <h3 class="sec-title">涉农合同模板库</h3>
+        <div class="template-search"><span style="margin-right:6px">🔍</span><input id="tplSearch" placeholder="搜索合同模板，如：粮食、土地、对俄" autocomplete="off"></div>
+        <div class="tpl-group">
+          <div class="tpl-group-title">📦 购销类</div>
+          <div class="tpl-row"><span class="tpl-name">农产品购销合同</span><span class="tpl-badge">通用</span><button class="tpl-dl" data-toast="正在生成模板文档…</button></div>
+          <div class="tpl-row"><span class="tpl-name">粮食购销合同</span><span class="tpl-badge">通用</span><button class="tpl-dl" data-toast="正在生成模板文档…</button></div>
+          <div class="tpl-row"><span class="tpl-name">鲜活农产品购销合同</span><span class="tpl-badge">通用</span><button class="tpl-dl" data-toast="正在生成模板文档…</button></div>
+        </div>
+        <div class="tpl-group">
+          <div class="tpl-group-title">🤝 流转与用工</div>
+          <div class="tpl-row"><span class="tpl-name">土地承包经营权流转合同</span><span class="tpl-badge">通用</span><button class="tpl-dl" data-toast="正在生成模板文档…</button></div>
+          <div class="tpl-row"><span class="tpl-name">农业劳务用工合同</span><span class="tpl-badge">通用</span><button class="tpl-dl" data-toast="正在生成模板文档…</button></div>
+          <div class="tpl-row"><span class="tpl-name">农机租赁合同</span><span class="tpl-badge">通用</span><button class="tpl-dl" data-toast="正在生成模板文档…</button></div>
+        </div>
+        <div class="tpl-group">
+          <div class="tpl-group-title">🇷🇺 对俄贸易版 <span class="rus-tag">俄语/中俄双语</span></div>
+          <div class="tpl-row"><span class="tpl-name">对俄农产品出口购销合同</span><span class="tpl-badge rus-badge">对俄版</span><button class="tpl-dl" data-toast="正在生成模板文档…</button></div>
+          <div class="tpl-row"><span class="tpl-name">对俄农业合作框架协议</span><span class="tpl-badge rus-badge">对俄版</span><button class="tpl-dl" data-toast="正在生成模板文档…</button></div>
+          <div class="tpl-row tpl-more">更多对俄模板陆续上线 ›</div>
+        </div>
+
+        <!-- 定制合同审核 -->
+        <h3 class="sec-title">定制合同审核</h3>
+        <div class="official-card">
+          <div class="official-ico">⚖️</div>
+          <div class="official-info">
+            <div class="official-title">专业律师帮您审合同</div>
+            <div class="official-desc">上传合同，律师逐条审核风险点，助您签得放心</div>
+          </div>
+        </div>
+        <div class="primary-btn" data-nav="page-consult">立即申请定制审核</div>
+
+        <!-- 直播广告用词规范 -->
+        <h3 class="sec-title">直播广告用词规范</h3>
+        <div class="rule-card">
+          <div class="rule-head">🚫 常见违规用语「不要用」</div>
+          <div class="rule-chip-list">
+            <span class="rule-chip bad">最优质</span>
+            <span class="rule-chip bad">绝对安全</span>
+            <span class="rule-chip bad">100%纯天然</span>
+            <span class="rule-chip bad">天然无副作用</span>
+            <span class="rule-chip bad">全国第一</span>
+          </div>
+        </div>
+        <div class="rule-card">
+          <div class="rule-head">✅ 合规表述「可以这么说」</div>
+          <div class="rule-chip-list">
+            <span class="rule-chip good">按检测报告为准</span>
+            <span class="rule-chip good">本品符合国标</span>
+            <span class="rule-chip good">营养成分见标签</span>
+            <span class="rule-chip good">促销价限时3天</span>
+          </div>
+        </div>
+        <div class="rule-tip">💡 建议开播前用「合规检测」自查广告词，详见实用工具模块</div>
+      </section>
+
+      <section class="page" id="page-res" data-tab="res">
+        <header class="app-header simple">
+          <button class="back-btn" data-back aria-label="返回"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <div class="header-title">资源对接</div>
+          <span class="header-space"></span>
+        </header>
+
+        <div class="panel-tip">🤝 遇上麻烦别慌，专业资源帮您对接维权</div>
+
+        <!-- 证据留存指引 -->
+        <h3 class="sec-title">证据留存指引</h3>
+        <div class="evid-card">
+          <div class="evid-head">📁 常用证据清单</div>
+          <div class="evid-items">
+            <div class="evid-item"><span>📄</span>书面合同/欠条/收据</div>
+            <div class="evid-item"><span>💬</span>微信/短信聊天记录</div>
+            <div class="evid-item"><span>🏧</span>银行转账、付款凭证</div>
+            <div class="evid-item"><span>📦</span>发货单据、物流凭证</div>
+            <div class="evid-item"><span>🎧</span>通话录音、现场照片视频</div>
+          </div>
+          <div class="evid-actions">
+            <span class="pill-btn" data-toast="证据清单已保存到本地 ✅">保存清单到本地</span>
+            <span class="pill-btn outline" data-toast="打印模板已生成，可前往打印 📄">打印模板</span>
+          </div>
+        </div>
+
+        <!-- 纠纷应对流程 -->
+        <h3 class="sec-title">纠纷应对流程</h3>
+        <div class="flow">
+          <div class="flow-step"><div class="flow-no">1</div><div class="flow-body"><b>梳理证据</b><span>按证据清单整理材料，留存原件</span></div></div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step"><div class="flow-no">2</div><div class="flow-body"><b>协商沟通</b><span>先与对方友好协商，保留沟通记录</span></div></div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step"><div class="flow-no">3</div><div class="flow-body"><b>寻求调解</b><span>联系乡镇司法所 / 村委进行调解</span></div></div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-step"><div class="flow-no">4</div><div class="flow-body"><b>法律途径</b><span>申请法律援助或委托律师提起诉讼</span></div></div>
+        </div>
+
+        <!-- 货款拖欠 / 退货纠纷协助 -->
+        <h3 class="sec-title">纠纷协助</h3>
+        <div class="assist-card" data-nav="page-consult">
+          <div class="assist-ico">💰</div>
+          <div class="assist-info">
+            <div class="assist-title">货款拖欠协助</div>
+            <div class="assist-desc">帮您理清欠款证据，指导催收与追偿</div>
+          </div>
+          <div class="assist-arrow">›</div>
+        </div>
+        <div class="assist-card" data-nav="page-consult">
+          <div class="assist-ico">📦</div>
+          <div class="assist-info">
+            <div class="assist-title">退货纠纷协助</div>
+            <div class="assist-desc">质量问题退货怎么谈，教您依法处理</div>
+          </div>
+          <div class="assist-arrow">›</div>
+        </div>
+
+        <!-- 诉讼对接 -->
+        <h3 class="sec-title">诉讼对接</h3>
+        <div class="official-card">
+          <div class="official-ico">⚖️</div>
+          <div class="official-info">
+            <div class="official-title">联系律师事务所</div>
+            <div class="official-desc">联动律所提供专业诉讼代理与咨询</div>
+          </div>
+        </div>
+        <div class="official-card">
+          <div class="official-ico">🎓</div>
+          <div class="official-info">
+            <div class="official-title">申请法律援助</div>
+            <div class="official-desc">符合条件可申请免费/减费法律援助</div>
+          </div>
+        </div>
+        <div class="primary-btn" data-nav="page-consult">发起法律对接</div>
+      </section>
+
+      <section class="page" id="page-tools" data-tab="tools">
+        <header class="app-header simple">
+          <button class="back-btn" data-back aria-label="返回"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <div class="header-title">实用工具</div>
+          <span class="header-space"></span>
+        </header>
+
+        <div class="panel-tip">🧰 卖货、宣传、过日子，工具常备，心里不慌</div>
+
+        <!-- 平台规则解读 -->
+        <h3 class="sec-title">平台规则解读</h3>
+        <div class="rule-card" data-ruleindex="0" style="cursor:pointer">
+          <div class="rule-head">▲ 电商平台开店规则</div>
+          <div class="rule-line">入驻资质、保证金、店铺保证金退换规则一篇看懂</div>
+          <div class="rule-link">查看详细解读 ›</div>
+        </div>
+        <div class="rule-card" data-ruleindex="1" style="cursor:pointer">
+          <div class="rule-head">▲ 直播平台带货规范</div>
+          <div class="rule-line">商品上架规范、虚假宣传处罚、账号信用分规则</div>
+          <div class="rule-link">查看详细解读 ›</div>
+        </div>
+        <div class="rule-card" data-ruleindex="2" style="cursor:pointer">
+          <div class="rule-head">▲ 农产品质量安全法要点</div>
+          <div class="rule-line">生产记录、用药规范、包装标识要求快速掌握</div>
+          <div class="rule-link">查看详细解读 ›</div>
+        </div>
+
+        <!-- 合规检测 -->
+        <h3 class="sec-title">合规检测</h3>
+        <div class="check-card">
+          <div class="check-label">粘贴或输入要检测的宣传词</div>
+          <div class="check-input" id="checkInput" contenteditable="true">例如：纯天然、零残留、包治百病…</div>
+          <button class="primary-btn check-btn" id="checkBtn">开始检测</button>
+          <div class="check-result">
+            <div class="check-score">综合合规指数 <b id="checkScore">0</b> / 100</div>
+            <div class="check-tags">
+              <span class="rule-chip good" id="checkGood" style="display:none">未检出违规词</span>
+              <span class="rule-chip bad" id="checkBad" style="display:none"><span id="checkBadText"></span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 逾期利息计算器 -->
+        <h3 class="sec-title">💸 逾期利息计算器</h3>
+        <div class="tool-card">
+          <div class="tool-label">本金（元）</div>
+          <input class="tool-input" id="intPrincipal" type="number" placeholder="如：50000" />
+          <div class="tool-label">日利率（‰，如 0.5 即 0.5‰/天）</div>
+          <input class="tool-input" id="intRate" type="number" placeholder="如：0.5" />
+          <div class="tool-label">逾期天数</div>
+          <input class="tool-input" id="intDays" type="number" placeholder="如：30" />
+          <button class="primary-btn calc-btn" id="intCalc" type="button">计算利息</button>
+          <div class="tool-result" id="intResult" style="display:none"></div>
+        </div>
+
+        <!-- 亩产收益估算器 -->
+        <h3 class="sec-title">🌾 亩产收益估算器</h3>
+        <div class="tool-card">
+          <div class="tool-label">种植面积（亩）</div>
+          <input class="tool-input" id="yArea" type="number" placeholder="如：10" />
+          <div class="tool-label">亩产量（斤）</div>
+          <input class="tool-input" id="yPer" type="number" placeholder="如：1200" />
+          <div class="tool-label">单价（元/斤）</div>
+          <input class="tool-input" id="yPrice" type="number" placeholder="如：1.2" />
+          <button class="primary-btn calc-btn" id="yCalc" type="button">估算收益</button>
+          <div class="tool-result" id="yResult" style="display:none"></div>
+        </div>
+
+        <!-- 产销对接 -->
+        <h3 class="sec-title">产销对接</h3>
+        <div class="assist-card" data-nav="page-consult">
+          <div class="assist-ico">🏪</div>
+          <div class="assist-info">
+            <div class="assist-title">找销路 · 对接采购商</div>
+            <div class="assist-desc">发布农产品信息，对接超市、批发市场、企业采购</div>
+          </div>
+          <div class="assist-arrow">›</div>
+        </div>
+        <div class="assist-card" data-nav="page-consult">
+          <div class="assist-ico">🚚</div>
+          <div class="assist-info">
+            <div class="assist-title">找物流 · 冷链运输资源</div>
+            <div class="assist-desc">对接本地物流与冷链资源，降低运输损耗</div>
+          </div>
+          <div class="assist-arrow">›</div>
+        </div>
+
+        <!-- 便农生活服务入口 -->
+        <h3 class="sec-title">便农生活服务</h3>
+        <div class="primary-btn" data-nav="page-life">进入便农生活服务</div>
+      </section>
+
+      <section class="page" id="page-life" data-tab="life">
+        <header class="app-header simple">
+          <button class="back-btn" data-back aria-label="返回"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <div class="header-title">便农生活服务</div>
+          <span class="header-space"></span>
+        </header>
+
+        <div class="panel-tip">🌾 不只讲法，更帮您把日子过得更省心、更增收</div>
+
+        <div class="big-svc" data-nav="page-group">
+          <div class="big-svc-ico">💬</div>
+          <div class="big-svc-body">
+            <div class="big-svc-title">微信群答疑</div>
+            <div class="big-svc-desc">入群实时提问，法律、产销、生活问题在线解答</div>
+          </div>
+          <div class="big-svc-arrow">›</div>
+        </div>
+        <div class="big-svc" data-nav="page-staff">
+          <div class="big-svc-ico">👥</div>
+          <div class="big-svc-body">
+            <div class="big-svc-title">村干部与师生联动</div>
+            <div class="big-svc-desc">村干部+高校师生进村服务，法律与技能送到家门口</div>
+          </div>
+          <div class="big-svc-arrow">›</div>
+        </div>
+        <div class="big-svc" data-nav="page-survey">
+          <div class="big-svc-ico">📋</div>
+          <div class="big-svc-body">
+            <div class="big-svc-title">需求调研反馈</div>
+            <div class="big-svc-desc">有困难、有建议？提交问卷，我们来跟进改善</div>
+          </div>
+          <div class="big-svc-arrow">›</div>
+        </div>
+
+        <h3 class="sec-title">便民服务</h3>
+        <div class="life-grid">
+          <div class="lg-item"><span class="q-ico">🏦</span>惠农补贴查询</div>
+          <div class="lg-item"><span class="q-ico">🌦️</span>农天气象资讯</div>
+          <div class="lg-item"><span class="q-ico">💳</span>农资贷款咨询</div>
+          <div class="lg-item"><span class="q-ico">🏥</span>农技健康服务</div>
+        </div>
+
+        <h3 class="sec-title">最新动态</h3>
+        <div class="news-card">
+          <div class="news-date">08/20</div>
+          <div class="news-text">第十七期微信群法律答疑直播，明晚7点开讲</div>
+        </div>
+        <div class="news-card">
+          <div class="news-date">08/15</div>
+          <div class="news-text">高校法援师生走进XX村，开展秋收购销普法活动</div>
+        </div>
+      </section>
+
+      <section class="page" id="page-consult" data-tab="consult">
+        <header class="app-header simple">
+          <button class="back-btn" data-back aria-label="返回"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <div class="header-title">在线咨询</div>
+          <span class="header-space"></span>
+        </header>
+
+        <div class="panel-tip">💬 多种咨询方式可选，专业法律与产销服务随时为您服务</div>
+
+        <!-- 咨询方式 -->
+        <div class="consult-modes">
+          <div class="cmode active"><span class="cmode-ico">🤖</span><span>智能法律咨询</span></div>
+          <div class="cmode"><span class="cmode-ico">👨‍⚖️</span><span>人工律师咨询</span></div>
+          <div class="cmode"><span class="cmode-ico">🎓</span><span>法援师生答疑</span></div>
+        </div>
+
+        <!-- 咨询输入 -->
+        <div class="consult-form">
+          <div class="form-label">选择咨询类型<span class="required">*</span></div>
+          <div class="form-options">
+            <span class="opt-chip active">法律问题</span>
+            <span class="opt-chip">合同纠纷</span>
+            <span class="opt-chip">货款追讨</span>
+            <span class="opt-chip">土地流转</span>
+            <span class="opt-chip">电商经营</span>
+            <span class="opt-chip">产销对接</span>
+          </div>
+
+          <div class="form-label">描述您的问题<span class="required">*</span></div>
+          <div class="consult-textarea" id="consultTextarea" contenteditable="true" data-placeholder="请简明描述您遇到的问题，包括关键时间、金额、对方信息等…">请简明描述您遇到的问题，包括关键时间、金额、对方信息等…</div>
+          <div class="voice-row">
+            <button class="voice-btn" id="consultVoiceBtn" type="button">
+              <span class="voice-ico">🎤</span>
+              <span class="voice-label" id="consultVoiceLabel">按住说话，自动转为文字</span>
+            </button>
+            <div class="voice-tip" id="consultVoiceTip"></div>
+          </div>
+
+          <button class="primary-btn consult-submit">提交咨询</button>
+        </div>
+
+        <!-- 常见问题 自动解答 -->
+        <h3 class="sec-title">常见问题 · 自动解答</h3>
+        <div class="faq-card" id="consultFaq">
+          <div class="faq-item" data-faq="0"><span class="faq-ic">❓</span><span class="faq-q">收购商赊账不还，货款怎么要？</span></div>
+          <div class="faq-item" data-faq="1"><span class="faq-ic">❓</span><span class="faq-q">口头卖粮没合同，出了纠纷咋办？</span></div>
+          <div class="faq-item" data-faq="2"><span class="faq-ic">❓</span><span class="faq-q">流转的土地年限没写清，算不算数？</span></div>
+          <div class="faq-item" data-faq="3"><span class="faq-ic">❓</span><span class="faq-q">打工被拖欠工钱，可以找谁？</span></div>
+          <div class="faq-item" data-faq="4"><span class="faq-ic">❓</span><span class="faq-q">买农机/农资到假货，能退吗？</span></div>
+        </div>
+        <div class="faq-answer" id="consultFaqAnswer" style="display:none">
+          <div class="faq-answer-head">🤖 自动解答</div>
+          <div class="faq-answer-body" id="consultFaqAnswerBody"></div>
+        </div>
+
+        <!-- 常见入口 -->
+        <h3 class="sec-title">快捷咨询入口</h3>
+        <div class="assist-card" data-nav="page-group">
+          <div class="assist-ico">💬</div>
+          <div class="assist-info">
+            <div class="assist-title">加入微信群提问</div>
+            <div class="assist-desc">即时提问，村民互助+专人解答</div>
+          </div>
+          <div class="assist-arrow">›</div>
+        </div>
+        <div class="assist-card">
+          <div class="assist-ico">📞</div>
+          <div class="assist-info">
+            <div class="assist-title">电话咨询</div>
+            <div class="assist-desc">工作日 8:30-17:30 · 免费咨询热线</div>
+          </div>
+          <div class="assist-arrow">›</div>
+        </div>
+
+        <!-- 我的咨询记录 -->
+        <h3 class="sec-title">我的咨询记录</h3>
+        <div class="history-card" id="consultHistory">
+          <div class="history-empty">还没有咨询记录，提交后会自动保存在这里</div>
+        </div>
+        <div class="history-clear" id="consultHistoryClear" style="display:none">清空记录</div>
+
+        <div class="rule-tip">💡 涉及纠纷的证据材料，建议先查看「资源对接-证据留存指引」整理好再咨询，效率更高</div>
+      </section>
+
+      <section class="page" id="page-group" data-tab="group">
+        <header class="app-header simple">
+          <button class="back-btn" data-back aria-label="返回"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <div class="header-title">微信群答疑</div>
+          <span class="header-space"></span>
+        </header>
+
+        <div class="panel-tip">💬 加入答疑群，法律、产销、生活问题随时提问</div>
+
+        <div class="group-card">
+          <div class="group-head">农业普法答疑群</div>
+          <div class="group-meta">已有 3,286 名农户加入 · 每日 19:00 在线答疑</div>
+          <div class="group-buttons">
+            <span class="group-btn" data-toast="群号已复制：yhhn-farmer-01 📋">复制群号入群</span>
+            <span class="group-btn outline" data-toast="群公告：每晚19:00律师在线答疑 📢">查看群公告</span>
+          </div>
+        </div>
+
+        <h3 class="sec-title">群内快速提问</h3>
+        <div class="ask-card">
+          <textarea class="ask-input" id="groupInput" placeholder="输入您的问题，如：合作社压价不签合同怎么办？"></textarea>
+          <button class="primary-btn" id="groupSend" type="button" style="margin-top:12px">发送到群（老师会解答）</button>
+          <div id="groupPosted" class="group-posted"></div>
+        </div>
+
+        <h3 class="sec-title">常见问题精选</h3>
+        <div class="qa-card">
+          <div class="qa-q">Q：收购方压价不签合同，我该怎么办？</div>
+          <div class="qa-a">A：坚持要求签订书面购销合同，注明品种、数量、质量标准与价格；若对方拒绝，务必留存聊天记录和转账凭证。</div>
+        </div>
+        <div class="qa-card">
+          <div class="qa-q">Q：农民自己卖剩菜，需要办证吗?</div>
+          <div class="qa-a">A：自产自销农产品一般无需经营许可，但要保证质量安全；批量销售建议了解当地市场准入要求。</div>
+        </div>
+        <div class="qa-card">
+          <div class="qa-q">Q：对俄卖粮，合同能不能用中文？</div>
+          <div class="qa-a">A：涉外合同建议使用中俄双语，明确适用法律与争议解决方式，避免语言条款不清引发纠纷。</div>
+        </div>
+      </section>
+
+      <section class="page" id="page-staff" data-tab="staff">
+        <header class="app-header simple">
+          <button class="back-btn" data-back aria-label="返回"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <div class="header-title">村干部师生联动</div>
+          <span class="header-space"></span>
+        </header>
+
+        <div class="panel-tip">👥 村干部搭桥、高校师生助力，服务送到村门口</div>
+
+        <h3 class="sec-title">服务上门介绍</h3>
+        <div class="official-card">
+          <div class="official-ico">🏘️</div>
+          <div class="official-info">
+            <div class="official-title">村干部联络点</div>
+            <div class="official-desc">村民有纠纷、有需求，可先找村干部登记对接</div>
+          </div>
+        </div>
+        <div class="official-card">
+          <div class="official-ico">🎓</div>
+          <div class="official-info">
+            <div class="official-title">高校法援师生团队</div>
+            <div class="official-desc">联合高校法律诊所，提供公益咨询与普法讲座</div>
+          </div>
+        </div>
+
+        <h3 class="sec-title">近期进村服务</h3>
+        <div class="news-card">
+          <div class="news-date">08/28</div>
+          <div class="news-text">XX村 · 法治文化广场，秋收购销合同普法摆摊</div>
+        </div>
+        <div class="news-card">
+          <div class="news-date">08/14</div>
+          <div class="news-text">XX镇 · 联合司法所开展“土地流转”专题宣讲</div>
+        </div>
+
+        <div class="primary-btn" id="staffBookBtn" type="button" style="cursor:pointer">预约上门服务</div>
+      </section>
+
+      <section class="page" id="page-survey" data-tab="survey">
+        <header class="app-header simple">
+          <button class="back-btn" data-back aria-label="返回"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+          <div class="header-title">需求调研反馈</div>
+          <span class="header-space"></span>
+        </header>
+
+        <div class="panel-tip">📋 您的需求，是我们改进的方向</div>
+
+        <div class="form-card">
+          <div class="form-label">您最需要哪方面的帮助？<span class="required">*</span></div>
+          <div class="form-options">
+            <span class="opt-chip">法律咨询</span>
+            <span class="opt-chip active">合同模板</span>
+            <span class="opt-chip">纠纷维权</span>
+            <span class="opt-chip">产销对接</span>
+            <span class="opt-chip">政策补贴</span>
+          </div>
+
+          <div class="form-label">您目前的种植/经营类型</div>
+          <div class="form-input" id="surveyBiz">如：粮食种植、蔬菜大棚、畜牧养殖…</div>
+
+          <div class="form-label">其他需求或建议</div>
+          <div class="form-textarea" id="surveyAdvice">请填写您遇到的问题或对平台的建议…</div>
+
+          <div class="form-label">您的称呼（选填）</div>
+          <input class="form-input" id="surveyName" placeholder="如：张大姐" maxlength="20" />
+
+          <div class="form-label">联系电话（选填）</div>
+          <input class="form-input" id="surveyPhone" type="tel" placeholder="便于我们联系您" maxlength="11" />
+
+          <button class="primary-btn form-submit" id="surveySubmit" type="button">提交反馈</button>
+        </div>
+
+        <h3 class="sec-title">我的反馈记录</h3>
+        <div class="history-card" id="surveyHistory">
+          <div class="history-empty">还没有提交过需求反馈，提交后会自动保存在这里</div>
+        </div>
+        <div class="history-clear" id="surveyHistoryClear" style="display:none">清空记录</div>
+
+        <div class="rule-tip">💡 我们承诺：所有反馈均会收集整理，由专人跟进并定期在答疑群反馈处理进展</div>
+      </section>
+
+      <!-- 我的 -->
+      <section class="page" id="page-me" data-tab="me">
+        <header class="app-header home-header">
+          <div class="header-top">
+            <div class="brand">
+              <span class="brand-logo">护</span>
+              <span class="brand-name">我的</span>
+            </div>
+          </div>
+        </header>
+        <div class="me-card" id="meCard">
+          <div class="me-avatar" id="meAvatar">👨‍🌾</div>
+          <div class="me-info">
+            <div class="me-name" id="meName">未登录</div>
+            <div class="me-role" id="meRole">登录后畅享完整服务</div>
+          </div>
+          <button class="me-login-btn" id="loginBtn">登录 / 注册</button>
+        </div>
+
+        <!-- 个人数据统计（登录后显示） -->
+        <div class="me-stats" id="meStats" style="display:none">
+          <div class="stat"><b id="statCol">0</b><span>收藏</span></div>
+          <div class="stat"><b id="statConsult">0</b><span>咨询</span></div>
+          <div class="stat"><b id="statDl">0</b><span>下载</span></div>
+          <div class="stat"><b id="statSurvey">0</b><span>反馈</span></div>
+        </div>
+
+        <!-- 我的记录（登录后显示） -->
+        <div id="meRecords" style="display:none">
+          <h3 class="sec-title">我的服务记录</h3>
+          <div class="me-list">
+            <div class="me-row" data-collect><span>⭐</span><span class="row-label">我的收藏</span><span class="row-count" id="meCollectCount">0</span><span class="row-arrow">›</span></div>
+            <div class="me-row" data-hist-consult><span>💬</span><span class="row-label">咨询记录</span><span class="row-arrow">›</span></div>
+            <div class="me-row" data-hist-browse><span>👀</span><span class="row-label">浏览历史</span><span class="row-arrow">›</span></div>
+            <div class="me-row" data-toast="查看已下载的合同模板"><span>📥</span><span class="row-label">下载记录</span><span class="row-arrow">›</span></div>
+            <div class="me-row" data-toast="查看提交过的问卷反馈"><span>📋</span><span class="row-label">反馈记录</span><span class="row-arrow">›</span></div>
+          </div>
+        </div>
+
+        <h3 class="sec-title">实用工具</h3>
+        <div class="me-grid">
+          <div class="me-cell" data-nav="page-tools"><span class="q-ico">🧰</span>实用工具</div>
+          <div class="me-cell" data-nav="page-life"><span class="q-ico">🌾</span>便农服务</div>
+          <div class="me-cell" data-nav="page-survey"><span class="q-ico">📋</span>需求调研</div>
+          <div class="me-cell" data-nav="page-consult"><span class="q-ico">💬</span>在线咨询</div>
+        </div>
+
+        <h3 class="sec-title">便农生活服务</h3>
+        <div class="me-list">
+          <div class="me-row" data-nav="page-group"><span>💬</span><span class="row-label">微信答疑群</span><span class="row-arrow">›</span></div>
+          <div class="me-row" data-nav="page-staff"><span>👥</span><span class="row-label">村干部与师生联动</span><span class="row-arrow">›</span></div>
+          <div class="me-row" data-nav="page-survey"><span>📊</span><span class="row-label">需求调研反馈</span><span class="row-arrow">›</span></div>
+        </div>
+
+        <h3 class="sec-title">联动机构</h3>
+        <div class="me-list">
+          <div class="me-row"><span>🏛️</span><span class="row-label">乡镇司法所</span><span class="row-tag">法律咨询</span></div>
+          <div class="me-row"><span>🎓</span><span class="row-label">学校法律援助中心</span><span class="row-tag">法律援助</span></div>
+          <div class="me-row"><span>⚖️</span><span class="row-label">律师事务所</span><span class="row-tag">专业律师</span></div>
+        </div>
+
+        <div class="me-logout" id="logoutBtn">退出登录</div>
+      </section>
+
+      <!-- 通用中心弹窗（详情/表单） -->
+      <div class="sheet-overlay" id="sheetOverlay">
+        <div class="sheet-mask" data-close-sheet></div>
+        <div class="sheet">
+          <div class="sheet-head">
+            <span class="sheet-title" id="sheetTitle">详情</span>
+            <button class="sheet-close" data-close-sheet aria-label="关闭">✕</button>
+          </div>
+          <div class="sheet-body" id="sheetBody"></div>
+        </div>
+      </div>
+
+      <!-- 登录弹窗 -->
+      <div class="modal" id="loginModal">
+        <div class="modal-mask" data-close-modal></div>
+        <div class="modal-body">
+          <div class="modal-title">登录云上护农宝</div>
+          <div class="modal-sub">享受专属法律与产销服务</div>
+          <div class="modal-input" id="modalPhone">请输入手机号</div>
+          <div class="modal-input">请输入验证码</div>
+          <div class="primary-btn modal-btn" id="modalLoginBtn">同意协议并登录</div>
+          <div class="modal-agree">
+            <label><input type="checkbox" checked> 已阅读并同意《用户协议》与《隐私政策》</label>
+          </div>
+          <div class="modal-close" data-close-modal>✕ 关闭</div>
+        </div>
+      </div>
+
+      <!-- 底部 Tab 导航（仅主板块显示） -->
+      <nav class="tabbar" id="tabbar">
+        <div class="tab" data-tab="home"><span class="tab-ico">🏠</span><span>首页</span></div>
+        <div class="tab" data-tab="law"><span class="tab-ico">⚖️</span><span>法律服务</span></div>
+        <div class="tab" data-tab="edu"><span class="tab-ico">📚</span><span>普法教育</span></div>
+        <div class="tab" data-tab="res"><span class="tab-ico">🤝</span><span>资源对接</span></div>
+        <div class="tab" data-tab="me"><span class="tab-ico">👤</span><span>我的</span></div>
+      </nav>
+    </div>
+  </div>
+</main>
+
+<script src="js/app.js?v=3"></script>
+<script src="js/enhance.js?v=3"></script>
+</body>
+</html>
